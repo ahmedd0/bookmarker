@@ -1,0 +1,106 @@
+html {
+    scroll-behavior: smooth;
+    min-height: 2000px;
+}
+
+body {
+    background: linear-gradient(45deg, rgb(45, 198, 212), #f2f);
+
+}
+
+.up {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: transparent !important;
+    border: 2px solid white;
+    text-decoration: none;
+    transform: translateX(-50%);
+}
+
+.btn:focus,
+.form-control:focus {
+    box-shadow: none !important;
+}
+
+.form-container {
+    height: 100vh;
+}
+
+.btn-add {
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-effect {
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transition: all 0.5s ease;
+    border: 0 !important;
+}
+
+.btn-effect div {
+    background-color: white;
+    width: 20%;
+    height: 0;
+}
+
+.btn-add:hover .sub-divs {
+    animation-name: show;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    transition: all 0.3s ease;
+
+}
+
+.btn-add:hover {
+    color: black !important;
+
+}
+
+.btn-add:hover .div-1 {
+    animation-delay: 0s;
+}
+
+.btn-add:hover .div-2 {
+    animation-delay: 0.1s;
+}
+
+.btn-add:hover .div-3 {
+    animation-delay: 0.2s;
+}
+
+.btn-add:hover .div-4 {
+    animation-delay: 0.3s;
+}
+
+.btn-add:hover .div-5 {
+    animation-delay: 0.4s;
+}
+
+
+
+.bookmarks .item {
+    background: #eee;
+}
+
+@keyframes show {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+
+    }
+}

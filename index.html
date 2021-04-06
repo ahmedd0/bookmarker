@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- START WEBSITE TITLE -->
+    <title>CRUD APPLICATION</title>
+    <!-- END WEBSITE TITLE -->
+    <meta name="description" content="crud system application for products">
+    <meta name="keywords" content="crud-system, application, web-development , html,css,js">
+    <meta name="author" content="Ahmed Abdelhady">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ============ START STYLING FILES ==================== -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- ============ END STYLING FILES ======================-->
+</head>
+
+<body>
+    <section class="form-container py-4" id="form-section">
+        <div class="container h-100">
+            <!-- START FORM -->
+            <div class="form h-100 d-flex justify-content-center align-items-center">
+                <div class="w-50">
+                    <h1 class="text-center  text-white"><i class="fas fa-bookmark"></i> BOOKMARKER</h1>
+
+                    <div class="form-group bg-dark text-white mt-4  p-3">
+                        <label for="">Site Name</label>
+                        <input class="d-block form-control border-0 rounded-0" id="name" autocomplete="off" type="text"
+                            placeholder="Bookmark Name" name="name">
+                    </div>
+                    <div class="form-group bg-dark text-white  p-3">
+                        <label for="">Site URL</label>
+                        <input class="d-block form-control border-0 rounded-0" id="url" autocomplete="off" type="text"
+                            placeholder="www.google.com" name="url">
+                    </div>
+                    <div class="form-group  text-white text-center  p-3" id="btn">
+                        <button
+                            class="btn btn-add btn-dark text-center p-3 rounded-pill border-0 position-relative font-weight-bold"
+                            id="addBtn" onclick="addData()">ADD
+                            BOOKMARK
+                            <div class="btn-effect d-flex position-absolute">
+                                <div class="sub-divs div-1"></div>
+                                <div class="sub-divs div-2"></div>
+                                <div class="sub-divs div-3"></div>
+                                <div class="sub-divs div-4"></div>
+                                <div class="sub-divs div-5"></div>
+
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- END FORM -->
+
+
+
+
+        </div>
+        <a href="#bookmarks-section" class="up btn"><i class="fas fa-chevron-down"></i></a>
+
+    </section>
+    <!-- BOOKMARKS SECTION -->
+    <section class="bookmarks  py-5" id="bookmarks-section">
+        <div class="container">
+            <div class="search w-75 mx-auto text-center text-white mb-5">
+                <div class="form-group bg-dark text-white  p-3">
+                    <label for="" class="font-weight-bold">SEARCH</label>
+                    <input type="text" class="form-control " onkeyup="CRUDS.search(this.value)">
+                </div>
+            </div>
+            <div class="row" id="bookmarks">
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================   PLUGINS   =================================== -->
+
+    <!-- JAVASCRIPT PLUGINS -->
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- JAVASCRIPT PLUGINS -->
+
+</body>
+
+</html>
