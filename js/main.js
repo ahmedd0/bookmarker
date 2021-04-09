@@ -7,8 +7,6 @@ var updateBtn = document.getElementById("updateBtn");
 var searchBtn = document.getElementById("searchBtn");
 var urlAlert = document.getElementById("urlAlert");
 var nameAlert = document.getElementById("nameAlert");
-var isNameValid = false;
-var isUrlValid = false;
 
 // ======= GLOBAL VARIABLE  ======
 var bookmarksList;
@@ -144,41 +142,36 @@ function clearForm() {
   url.value = "";
 }
 // ======================= FORM VALIDATION ===========================
-
+var nameRegex = /^[a-zA-Z0-9-]{3,10}$/;
+var urlRegex = /^(http(s)?:\/\/)?www\.[a-zA-z]{3,}\.[a-z]{1,}$/;
 webSiteName.onkeyup = function () {
-  var nameRejex = /^[a-zA-Z0-9-]{3,10}$/;
-  var isValid = nameRejex.test(this.value);
-  if (!isValid) {
-    nameAlert.classList.remove("d-none");
-    webSiteName.classList.add("is-invalid");
-    webSiteName.classList.remove("is-valid");
-    isNameValid = false;
-  } else {
-    nameAlert.classList.add("d-none");
-    webSiteName.classList.remove("is-invalid");
-    webSiteName.classList.add("is-valid");
-    isNameValid = true;
-  }
-  disabledOn();
+  validateInput(this, nameAlert, nameRegex);
+  isDataValid();
 };
 url.onkeyup = function () {
-  var nameRejex = /^(http(s)?:\/\/)?www\.[a-zA-z]{3,}\.[a-z]{1,}$/gm;
-  var isValid = nameRejex.test(this.value);
-  if (!isValid) {
-    urlAlert.classList.remove("d-none");
-    url.classList.add("is-invalid");
-    url.classList.remove("is-valid");
-    isUrlValid = false;
-  } else {
-    urlAlert.classList.add("d-none");
-    url.classList.remove("is-invalid");
-    url.classList.add("is-valid");
-    isUrlValid = true;
-  }
-  disabledOn();
+  validateInput(this, urlAlert, urlRegex);
+  isDataValid();
 };
-function disabledOn() {
-  if (isNameValid && isUrlValid) {
+function validateInput(input, alertDiv, regex) {
+  var nameRejex = regex;
+  var isValid = nameRejex.test(input.value);
+  if (!isValid) {
+    alertDiv.classList.remove("d-none");
+    input.classList.add("is-invalid");
+    input.classList.remove("is-valid");
+  } else {
+    alertDiv.classList.add("d-none");
+    input.classList.remove("is-invalid");
+    input.classList.add("is-valid");
+  }
+}
+function isDataValid() {
+  if (
+    webSiteName &&
+    url &&
+    nameRegex.test(webSiteName.value) &&
+    urlRegex.test(url.value)
+  ) {
     enableAddBtn();
     enableUpdateBtn();
   } else {
@@ -186,7 +179,7 @@ function disabledOn() {
     disabledUpdateBtn();
   }
 }
-disabledOn();
+isDataValid();
 // ==================== Enabled And DISABLED BTNS ===============
 function enableAddBtn() {
   var addBtn = document.getElementById("addBtn");
