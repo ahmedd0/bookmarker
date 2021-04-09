@@ -143,7 +143,7 @@ function clearForm() {
 }
 // ======================= FORM VALIDATION ===========================
 var nameRegex = /^[a-zA-Z0-9\- ]{3,20}$/;
-var urlRegex = /^(http(s)?:\/\/)?www\.[a-zA-Z]{3,}\.[a-z]{1,}([a-zA-Z0-9\/=&\-#@:])*$/;
+var urlRegex = /^(http(s)?:\/\/)?www\.[a-zA-Z]{3,}\.[a-z]{1,}([a-zA-Z0-9\/=&\-#@:_\?\.])*$/;
 webSiteName.onkeyup = function () {
   validateInput(this, nameAlert, nameRegex);
   isDataValid();
