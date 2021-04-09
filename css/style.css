@@ -25,6 +25,13 @@ body {
     transform: translateX(-50%);
 }
 
+@media (max-width:1000px) {
+    .form>div {
+        width: 100% !important;
+    }
+}
+
+
 .btn:focus,
 .form-control:focus {
     box-shadow: none !important;
