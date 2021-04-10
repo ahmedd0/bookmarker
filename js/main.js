@@ -23,12 +23,14 @@ var CRUDS = {
       url: `${url.value}`,
     };
     sliceHttp(bookmark);
-    if (bookmark.name && bookmark.url) {
+    var isValid = isDataValid();
+
+    if (bookmark.name && bookmark.url && isValid) {
       bookmarksList.push(bookmark);
       localStorage.setItem("bookmarks", JSON.stringify(bookmarksList));
       clearForm();
     } else {
-      alert("COMPLETE ALL REQUIRED DATA");
+      alert("Invalid Data");
     }
   },
   display: function () {
@@ -93,14 +95,15 @@ var CRUDS = {
       url: `${url.value}`,
     };
     sliceHttp(bookmark);
-    if (bookmark.name && bookmark.url) {
+    var isValid = isDataValid();
+    if (bookmark.name && bookmark.url && isValid) {
       bookmarksList[index].name = bookmark.name;
       bookmarksList[index].url = bookmark.url;
       localStorage.setItem("bookmarks", JSON.stringify(bookmarksList));
       CRUDS.display();
       clearForm();
     } else {
-      alert(console.log("COMPLETE ALL REQUIRED DATA"));
+      alert("invalid data");
     }
     chnageBtn("ADD BOOKMARK", "addBtn", `addData(${index})`);
     document.getElementById("addBtn").setAttribute("disabled", "true");
@@ -174,9 +177,11 @@ function isDataValid() {
   ) {
     enableAddBtn();
     enableUpdateBtn();
+    return true;
   } else {
     disableAddBtn();
     disabledUpdateBtn();
+    return false;
   }
 }
 isDataValid();
